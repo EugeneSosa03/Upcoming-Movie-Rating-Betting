@@ -4,15 +4,15 @@ import { useRouter } from 'next/navigation'
 
 
 
-export default function LoginButton() {
+export default function ProfileButton() {
 
 const router = useRouter();
 
-function ToLogIn () {
-  router.push('/LogIn');
+function ToProfile () {
+  router.push('/Profile');
 }
   return (
-    <LogInButton onClick={ToLogIn}>Login</LogInButton>
+    <LogInButton onClick={ToProfile}>Profile</LogInButton>
   )
 }
 
@@ -20,7 +20,7 @@ const LogInButton = styled.div`
 display: flex;
 justify-content: center;
 
-float: right;
+float: left;
 cursor: pointer;
 border: 0;
 border-radius: 4px;
