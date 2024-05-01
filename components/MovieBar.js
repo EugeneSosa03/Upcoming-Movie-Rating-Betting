@@ -4,15 +4,13 @@ import axios from 'axios';
 
 export default function MovieBar() {
 
- 
-
-  const [upcoming, setUpcoming] = useState([]);
-
-  useEffect(() => {
+  const [upcoming, setUpcoming] = useState("");
+  const [titles, setTitles] = useState("");
+  const [poster, setPoster] = useState("");
 
   async function GetMoviesID() {
   
-    //This first API gets Upcoming Movies IMBD ID. 
+    //This first API gets 1 Upcoming Movie IMBD ID. 
     const axios = require('axios');
 
     const options = {
@@ -20,7 +18,7 @@ export default function MovieBar() {
       url: 'https://online-movie-database.p.rapidapi.com/title/v2/get-coming-soon',
       params: {
         comingSoonType: 'MOVIE',
-        first: '20'
+        first: '1'
       },
       headers: {
         'X-RapidAPI-Key': '61156e88a8mshfa79bb92b5ddf34p195e25jsnc13b1e151059',
@@ -28,13 +26,15 @@ export default function MovieBar() {
       }
     };
     try {
-      const UpComingMovies = await axios.request(options);
+      const upComingMovieID = await axios.request(options);
 
-      const List = [];
-
-      UpComingMovies.data.data.comingSoon.edges.map((MovieID) => {List.push(MovieID.node.id)});
+    
+      upComingMovieID.data.data.comingSoon.edges.map((ID) => {setUpcoming(ID.node.id)});
       
-      setUpcoming(List);
+      
+      console.log({upcoming})
+
+      
     
     
     } catch (error) {
@@ -42,7 +42,7 @@ export default function MovieBar() {
     }
 }
 // uses ID from previous API to get the movies Information
-async function getMovies(id) {
+async function GetMovies(id) {
 
   const options = {
     method: 'GET',
@@ -56,7 +56,11 @@ async function getMovies(id) {
   
   try {
     const response = await axios.request(options);
-    console.log(response.data);
+    setTitles(response.title);
+    setPoster(response.poster);
+
+    console.log(titles);
+    console.log(poster);
 
     
   } catch (error) {
@@ -66,27 +70,26 @@ async function getMovies(id) {
 }
 
 
+  useEffect(() => {
 
+  
 
-
-
-
- // GetMoviesID();
-
-
-
-
+ GetMoviesID();
+ //GetMovies(upcoming);
 
 
 });
+
+
   return (
-<Movies> Movies Go In Here. Will use dynamic routing once I get API to work 
-</Movies> 
+<MoviePlacement>Hello
+</MoviePlacement> 
   )
 }
 
-const Movies = styled.div`
-    display: flex;
+const MoviePlacement = styled.div`
+    display: grid;
+    grid-template-row: 15vw;
     justify-content: center;
     align-items: center;
     width: 90vw;
@@ -94,4 +97,9 @@ const Movies = styled.div`
     margin: 5vw;
     border: 0.1vw solid white;
     color: red;
+`
+
+const MoviesButton = styled.img`
+width: 10vw;
+heigth: 10vw;
 `
