@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useRouter } from 'next/navigation'
+import ConnectWallet from './ConnectWallet';
 
 
 
@@ -19,6 +20,7 @@ const router = useRouter();
     <TitleContainer>
 
 <Title onClick={ToHome}> Movie Rating Betting </Title>
+  
 
     </TitleContainer>
     

@@ -1,9 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { ConnectEmbed, useSigner, useAddress} from "thirdweb/react";
+import { createWallet, inAppWallet } from "thirdweb/wallets";
+import { createThirdwebClient } from "thirdweb";
+
 import TitleBar from '@/components/TitleBar'
 import TicketBooth from '@/pictures/TicketBooth.webp'
 
+const wallets = [
+  inAppWallet(),
+  createWallet("io.metamask"),
+  createWallet("com.coinbase.wallet"),
+  createWallet("me.rainbow"),
+];
+
+const client = createThirdwebClient( {
+  clientId: "YOUR_CLIENT_ID",
+});
 
 const ParentContainer = styled.div`
 margin: 0vw;
@@ -32,19 +46,21 @@ background: rgba(255, 215, 0, 0.5);
 
 `
 
-
+const signer = useSigner();
 
 export default function index() {
+
+console.log("wallet address", signer);
+
   return (
 
    <ParentContainer>
     <TitleBar/>
 
     <Container>
-        <Text>Wallet</Text>
-        <InformationBar type='text'></InformationBar>
-        <Text>Password</Text>
-        <InformationBar type='password'></InformationBar>
+    
+      <ConnectEmbed client={client} wallets={wallets} />
+    
     </Container>
 
    </ParentContainer>

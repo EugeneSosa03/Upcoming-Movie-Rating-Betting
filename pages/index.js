@@ -4,14 +4,13 @@ import styled from "styled-components";
 
 import MovieBar from "@/components/MovieBar";
 import TitleBar from "@/components/TitleBar";
-import LoginButton from "@/components/LoginButton";
-import ProfileButton from "@/components/ProfileButton";
+import ProfileLoginBar from "@/components/ProfileLoginBar";
 
 import RedCarpet from "@/pictures/RedCarpetBackground.jpg";
 
 import { useEffect } from "react";
 
-import axios from 'axios';
+
 
 const ParentContainer = styled.div`
 margin: 0vw;
@@ -21,22 +20,20 @@ height: 100vw;
 background-image: url(${RedCarpet.src});
 background-repeat: no-repeat;
 background-size: 100% 100%;
-
 `
-
 
 export default function Home() {
 
   return (
     <>
       <Head>
-        <title>BESTEST WEBSITE EVER</title>
+        <title>UpComing Movie Rating Better</title>
       </Head>
+      
       <ParentContainer>
       
       <TitleBar/>
-      <ProfileButton/>
-      <LoginButton/>
+      <ProfileLoginBar/>
       <MovieBar/>
 
       </ParentContainer>
@@ -44,7 +41,6 @@ export default function Home() {
       </>
       )
       }
-
 
       const Box = styled.div`
       display: flex;
