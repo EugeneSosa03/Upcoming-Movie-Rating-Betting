@@ -55,7 +55,6 @@ console.log("wallet address", signer);
   return (
 
    <ParentContainer>
-    <TitleBar/>
 
     <Container>
     

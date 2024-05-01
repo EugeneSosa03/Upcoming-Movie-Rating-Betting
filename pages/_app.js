@@ -1,5 +1,6 @@
 import {createGlobalStyle} from "styled-components";
 import {Limelight} from 'next/font/google';
+import TitleBar from "@/components/TitleBar";
 
 
 
@@ -19,7 +20,7 @@ export default function App({ Component, pageProps }) {
 
 <>
 <GlobalStyle />
-
+<TitleBar/>
 <Component {...pageProps} />
 
 

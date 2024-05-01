@@ -19,9 +19,7 @@ background-size: 100% 100%;
 export default function index() {
   return (
     <ParentContainer>
-        <TitleBar/>
-
-
+        
         <TextContainer>
         <Text>Wallet Name</Text>
         <WonText>You Have won: </WonText>

@@ -32,7 +32,6 @@ export default function Home() {
       
       <ParentContainer>
       
-      <TitleBar/>
       <ProfileLoginBar/>
       <MovieBar/>
 
