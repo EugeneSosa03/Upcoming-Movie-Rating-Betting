@@ -9,10 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@thirdweb-dev/sdk": "^4.0.67",
+    "@thirdweb-dev/react": "^4.6.13",
+    "@thirdweb-dev/sdk": "^4.0.74",
     "axios": "^1.6.8",
     "ethers": "^5.7.2",
+    "i": "^0.3.7",
     "next": "14.1.4",
+    "npm": "^10.7.0",
     "react": "^18",
     "react-dom": "^18",
     "styled-components": "^6.1.8",

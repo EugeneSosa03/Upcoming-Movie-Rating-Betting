@@ -1,27 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
-
-import { ConnectEmbed, useSigner, useAddress} from "thirdweb/react";
-import { createWallet, inAppWallet } from "thirdweb/wallets";
-import { createThirdwebClient } from "thirdweb";
+import Head from 'next/head'
 
 import TitleBar from '@/components/TitleBar'
 import TicketBooth from '@/pictures/TicketBooth.webp'
 
-const wallets = [
-  inAppWallet(),
-  createWallet("io.metamask"),
-  createWallet("com.coinbase.wallet"),
-  createWallet("me.rainbow"),
-];
 
-const client = createThirdwebClient( {
-  clientId: "YOUR_CLIENT_ID",
-});
+import { ConnectEmbed, useDisconnect } from "@thirdweb-dev/react";
+
 
 const ParentContainer = styled.div`
+display: flex;
+justify-content: center;
 margin: 0vw;
-
 width: 100%;
 height: 50vw;
 
@@ -30,42 +21,24 @@ background-repeat: no-repeat;
 background-size: 100% 100%;
 `
 
-const Container = styled.div`
-
-display: grid;
-grid-template-column: 10vw;
-grid-template-row: 10vw;
-width: 30vw;
-justify-content: center;
-//align-items: center;
-margin-left: 35vw;
-margin-top: 10vw;
-
-
-background: rgba(255, 215, 0, 0.5);
-
-`
-
-const signer = useSigner();
-
 export default function index() {
 
-console.log("wallet address", signer);
-
+ const disconnect = useDisconnect();
   return (
+<>
 
-   <ParentContainer>
-
-    <Container>
+<ParentContainer>
+      <Head>
+        <title>Login</title>
+      </Head>
+      <button onClick={disconnect}>Disconnect</button>
+    <ConnectEmbed/>
     
-      <ConnectEmbed client={client} wallets={wallets} />
-    
-    </Container>
 
    </ParentContainer>
       
-    
-    
+</>
+   
   )
 }
 

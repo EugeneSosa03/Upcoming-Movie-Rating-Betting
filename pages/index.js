@@ -11,7 +11,6 @@ import RedCarpet from "@/pictures/RedCarpetBackground.jpg";
 import { useEffect } from "react";
 
 
-
 const ParentContainer = styled.div`
 margin: 0vw;
 padding: 0vw;

@@ -1,8 +1,11 @@
 import React from 'react'
+import Head from "next/head";
 import styled from 'styled-components'
 
 import TitleBar from '@/components/TitleBar'
 import Lobby from '@/pictures/CinemaLobby.jpg'
+
+import { useAddress } from "@thirdweb-dev/react";
 
 
 const ParentContainer = styled.div`
@@ -16,12 +19,25 @@ background-repeat: no-repeat;
 background-size: 100% 100%;
 `
 
+
+
 export default function index() {
+
+  const address = useAddress();
+
   return (
+    <>
+    
+    <Head>
+        <title>Profile</title>
+      </Head>
+
     <ParentContainer>
         
+
         <TextContainer>
-        <Text>Wallet Name</Text>
+        <Text>Wallet Name: {address}</Text>
+        <Text>Current Balance: </Text>
         <WonText>You Have won: </WonText>
         </TextContainer>
 
@@ -32,7 +48,11 @@ export default function index() {
         </WinningsContainer>
 
         </ParentContainer>
-  )
+  
+    
+    
+    </>
+  )  
 }
 
 const TextContainer = styled.div`
