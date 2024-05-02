@@ -10,9 +10,6 @@ import {
 } from "@thirdweb-dev/react";
 
 
-
-
-
 const limelight = Limelight({weight:'400' , subsets: ['latin']})
 
 export const GlobalStyle = createGlobalStyle`
@@ -20,7 +17,6 @@ export const GlobalStyle = createGlobalStyle`
   margin: 0;
   padding: 0;
   font-family: ${limelight.style.fontFamily};
- 
 }
 `
 

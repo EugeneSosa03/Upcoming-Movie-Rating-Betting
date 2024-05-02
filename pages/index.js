@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>UpComing Movie Rating Better</title>
+        <title>Home Page</title>
       </Head>
       
       <ParentContainer>
